@@ -1,0 +1,274 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #6f36ff;
+}
+
+.wrapper {
+    top: 50%;
+    left: 50%;
+    width: 250px;
+    resize: both;
+    background: #fff;
+    position: absolute;
+    border-radius: 10px;
+    transform: translate(-50%,-50%) scale(0.5);
+}
+
+.wrapper:hover .content .icon {
+    transform: scale(1.1);
+}
+
+.wrapper header {
+    color: #6f36ff;
+    font-size: 23px;
+    font-weight: 500;
+    padding: 17px 30px;
+    border-bottom: 1px solid #bfbfbf;
+}
+
+.wrapper header span {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select:none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+
+.wrapper header .move:hover {
+    cursor: pointer;
+}
+
+
+.wrapper header .move i {
+    font-size: 20px;
+    transform: translateY(-50);
+}
+
+.wrapper .content {
+    margin: 30px 30px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    pointer-events: none;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select:none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.content .icon {
+    height: 95px;
+    width: 95px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid #6f36ff;
+    border-radius: 50%;
+}
+
+.content .icon i {
+    color: #6f36ff;
+    font-size: 60px;
+}
+
+.content .title {
+    font-size: 29px;
+    font-weight: 500;
+    margin: 15px 0;
+}
+
+.content p {
+    font-size: 16px;
+    text-align: center;
+}
+
+.fa.fa-arrows-alt {
+    transform: rotate(45deg);
+    display: inline-block;
+}
+
+.btn.magic {
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px;
+    position: absolute;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 1.4;
+    top: -10px;
+    right: -10px;
+    color: #6f36ff;
+    border: 0;
+    user-select: none;
+    z-index: 15;
+}
+
+.btn.magic:active, .btn.magic:focus {
+    background-color: #c0a8fc;
+}
+
+.tool {
+    background-color: #fff;
+    border-radius: 50%;
+    /* box-shadow: 5px 5px 10px; */
+    position: absolute;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 1.4;
+    top: -10px;
+    right: -10px;
+    color: #6f36ff;
+    border: 0;
+    z-index: 10;
+}
+
+.btn.magic .icon.options{
+    display: inline-block;
+    color: #6f36ff;
+    font-size: 35px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+}
+
+
+.btn.magic input{
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+
+.btn.magic input:checked ~ .icon.options .fa-gear{
+    animation-name: rotate;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.btn.magic:has(input:checked) ~ .tool.delete {
+    top: -70px;
+    right: 25px;
+}
+
+.btn.magic:has(input:checked) ~ .tool.add {
+    top: -70px;
+    right: -45px;
+}
+
+.btn.magic:has(input:checked) ~ .tool.fix {
+    top: -10px;
+    right: -80px;
+}
+
+.btn.magic:has(input:checked) ~ .tool.search {
+    top: 60px;
+    right: -60px;
+}
+
+
+
+.tool {
+    transition: .2s ease-in, transform 0.1s;
+}
+
+.tool.add {
+    transition: .3s ease-in, transform 0.1s;
+}
+
+.tool.fix {
+    transition: .35s ease-in, transform 0.1s;
+}
+
+.tool.search {
+    transition: .4s ease-in, transform 0.1s;
+}
+
+.tool.search input[type='checkbox'] {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.tool.search input[type='checkbox']:checked ~ .text {
+    display: inline-block;
+    width: 50%;
+    border: 0;
+    border-radius: 30px;
+}
+
+.tool.search input[type='checkbox']:checked ~ .text input[type='text'] {
+    margin: 2px;
+    height: 90%;
+    width: 142%;
+    border: 0;
+    border-radius: 5px 30px 30px 5px;
+    background-color: #dcdcdc;
+    color: #fff;
+}
+
+.tool.search:has(input[type='checkbox']:checked) {
+    width: 200px;
+    right: -230px !important;
+    border-radius: 30px;
+}
+
+.tool.search:has(input[type='checkbox']:checked) .icon {
+    left: 30px !important;
+    transition: .3s;
+}
+
+.tool.search .text {
+    display: none;
+    width: 70px;
+    height: 100%;
+    background-color: #fff;
+}
+
+.tool .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 2s;
+}
+
+.tool:hover {
+    transform: scale(1.2);
+}
+
+.tool:hover .fa {
+    font-size: 30px
+}
+
+.tool .icon i {
+    font-size: 25px;
+}
+
+
+.btn.magic:hover .icon {
+    background-color: #fff6cc;
+}
+
+@keyframes rotate {
+    0% {transform: rotate(0);
+    }
+    100% {transform: rotate(360deg);
+    }
+}
